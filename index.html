@@ -50,25 +50,6 @@
     z-index: 1;
   }
 
-  .logo-wrap {
-    text-align: center;
-    margin-bottom: 44px;
-  }
-
-  .logo-wrap img {
-    height: 90px;
-    width: auto;
-    filter: drop-shadow(0 0 18px rgba(255,180,0,0.22));
-    object-fit: contain;
-  }
-
-  .divider {
-    width: 32px;
-    height: 1px;
-    background: rgba(255,180,0,0.35);
-    margin: 0 auto 40px;
-  }
-
   .eyebrow {
     font-family: 'Alumni Sans Pinstripe', serif;
     font-size: 13px;
@@ -146,7 +127,6 @@
   }
 
   input:focus, textarea:focus { border-bottom-color: #ffb400; }
-
   textarea { resize: none; height: 80px; line-height: 1.7; }
 
   .form-group::after {
@@ -222,44 +202,16 @@
     text-transform: uppercase;
   }
 
-  .footer a { color: rgba(255,180,0,0.35); text-decoration: none; transition: color 0.2s; }
+  .footer a { color: rgba(255,180,0,0.35); text-decoration: none; }
   .footer a:hover { color: #ffb400; }
-
-  .success-screen { display: none; text-align: center; padding: 80px 0; }
-
-  .success-line {
-    width: 1px;
-    height: 60px;
-    background: linear-gradient(to bottom, transparent, #ffb400, transparent);
-    margin: 0 auto 32px;
-  }
-
-  .success-screen h2 {
-    font-family: 'Alumni Sans Pinstripe', serif;
-    font-size: 36px;
-    font-weight: 400;
-    color: #fff;
-    letter-spacing: 0.06em;
-    margin-bottom: 14px;
-  }
-
-  .success-screen p {
-    font-size: 12px;
-    color: rgba(255,255,255,0.3);
-    font-weight: 300;
-    letter-spacing: 0.08em;
-    line-height: 2;
-    text-transform: uppercase;
-  }
-
-  .success-screen .gold { color: #ffb400; }
 </style>
 </head>
 <body>
 
 <div class="container">
 
-  <div id="formWrap">
+  <form action="https://formspree.io/f/xrerberq" method="POST">
+
     <p class="eyebrow">New Enquiry</p>
     <h1>Let's Create<br><em>Together</em></h1>
     <p class="subtitle">Share your vision — we'll handle the rest</p>
@@ -267,55 +219,47 @@
     <div class="row">
       <div class="form-group">
         <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" placeholder="Jane Smith" autocomplete="name" />
+        <input type="text" id="name" name="name" placeholder="Jane Smith" required />
       </div>
       <div class="form-group">
         <label for="company">Company</label>
-        <input type="text" id="company" name="company" placeholder="Acme Inc." autocomplete="organization" />
+        <input type="text" id="company" name="company" placeholder="Acme Inc." />
       </div>
     </div>
 
     <div class="row" style="margin-top:24px">
       <div class="form-group">
         <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" placeholder="jane@acme.com" autocomplete="email" />
+        <input type="email" id="email" name="email" placeholder="jane@acme.com" required />
       </div>
       <div class="form-group">
         <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" name="phone" placeholder="+971 50 000 0000" autocomplete="tel" />
+        <input type="tel" id="phone" name="phone" placeholder="+971 50 000 0000" />
       </div>
     </div>
 
     <div class="form-group" style="margin-top:24px">
       <label for="message">How Can We Help</label>
-      <textarea id="message" name="message" placeholder="Tell us about your project, goals, or challenges…"></textarea>
+      <textarea id="message" name="message" placeholder="Tell us about your project, goals, or challenges…" required></textarea>
     </div>
 
-    <form id="myForm" action="https://formspree.io/f/xrerberq" method="POST" onsubmit="handleSubmit(event)">
-      <input type="hidden" name="name" id="hiddenName">
-      <input type="hidden" name="email" id="hiddenEmail">
-      <input type="hidden" name="company" id="hiddenCompany">
-      <input type="hidden" name="phone" id="hiddenPhone">
-      <input type="hidden" name="message" id="hiddenMessage">
-      <div class="submit-wrap">
-        <p class="submit-note">We respond within 24 hours, every time.</p>
-        <button type="submit" class="submit-btn">Send Message</button>
-      </div>
-    </form>
+    <!-- Redirect back to your form after submission -->
+    <input type="hidden" name="_next" value="https://yourusername.github.io/defy-form?success=true" />
+
+    <div class="submit-wrap">
+      <p class="submit-note">We respond within 24 hours, every time.</p>
+      <button type="submit" class="submit-btn">Send Message</button>
+    </div>
 
     <div class="footer">
       <div class="footer-line"></div>
       <p>defystudios.ae &nbsp;·&nbsp; <a href="#">Privacy Policy</a></p>
       <div class="footer-line"></div>
     </div>
-  </div>
 
-  <div class="success-screen" id="successScreen">
-    <div class="success-line"></div>
-    <h2>Message Received</h2>
-    <p>Thank you for reaching out.<br>A member of the <span class="gold">Defy Studios</span> team<br>will be in touch shortly.</p>
-  </div>
+  </form>
 
 </div>
 
-<script>
+</body>
+</html>
